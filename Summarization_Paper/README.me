@@ -1,0 +1,58 @@
+Summarization Pipeline
+
+Scientific Paper Summarization Pipeline
+
+Description
+
+This pipeline implements an automated system for summarizing scientific papers.
+It processes academic papers that are converted locally from PDF to XML using the GROBID model, extracts their textual content, and generates a structured academic summary using the BART-Large-CNN language model.
+
+⸻
+
+Workflow Overview
+	1.	Input
+	•	XML file generated locally from a scientific PDF using GROBID.
+	2.	Text Extraction
+	•	Extracts paper metadata (title, authors, date).
+	•	Extracts text from the abstract and body sections using BeautifulSoup.
+	3.	Text Preprocessing
+	•	Cleans the extracted text by removing extra spaces and citation references.
+	•	Prepares the text for model input.
+	4.	Text Chunking
+	•	Splits long text into smaller chunks (≈450 words) to meet model input limits.
+	5.	Summarization
+	•	Uses the pre-trained facebook/bart-large-cnn model via Hugging Face.
+	•	Generates summaries for each chunk.
+	•	Combines all chunk summaries into a single summary.
+	6.	Structured Summary Generation
+	•	Divides the final summary into academic sections:
+	•	Introduction
+	•	Problem
+	•	Proposed Method
+	•	Key Contributions
+	•	Experimental Results
+	•	Conclusion
+	7.	Output
+	•	TXT file containing the structured summary.
+	•	HTML file for clean and readable web presentation.
+
+⸻
+
+Evaluation Method
+	•	No quantitative metrics (e.g., accuracy or ROUGE) were used.
+	•	Evaluation was performed qualitatively by comparing the generated summaries with the original scientific paper to assess clarity and relevance.
+
+⸻
+
+Technologies Used
+	•	Python
+	•	BeautifulSoup
+	•	Hugging Face Transformers
+	•	BART-Large-CNN
+	•	Regular Expressions (text cleaning)
+
+⸻
+
+Notes
+	•	PDF-to-XML conversion is performed locally using GROBID.
+	•	Designed for academic  and research use.
