@@ -1,0 +1,4 @@
+# Summarization Paper Pipeline
+
+This folder contains the implementation of Pipeline 1 for
+summarizing scientific papers using BART-Large-CNN.
